@@ -113,7 +113,10 @@ bool lineSourceOther(std::string a, std::string b) {
 /* Необходимо определить, существуют ли два элемента, сумма которых равна target.
  * этот подход работает за O(n/2), что равно  O(n)*/
 bool pairSearch(std::vector<int> mas, int target) {
-  int l = 0, r = mas.size();
+  if (mas.size() < 2) {
+    return false;
+  }
+  int l = 0, r = mas.size() - 1;
   while (l < r) {
     if (target > mas[l] + mas[r]) {
       l++;
@@ -141,6 +144,9 @@ bool isPalindrom(std::string str) {
 
 /* удаление дупликатов из массива*/
 void removeDuplicates(std::vector<int> &arr) {
+  if (arr.empty()) {
+    return;
+  }
   int slow = 0, fast = 1;
   while (fast < arr.size()) {
     if (arr[fast] != arr[slow]) {

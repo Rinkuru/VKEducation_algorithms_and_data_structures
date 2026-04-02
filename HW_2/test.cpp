@@ -51,6 +51,8 @@ TEST(HW2, test_lineSourceOther) {
 }
 
 TEST(HW2, test_pairSearch) {
+  EXPECT_FALSE(pairSearch(std::vector<int>({}), 10));
+  EXPECT_FALSE(pairSearch(std::vector<int>({7}), 14));
   EXPECT_FALSE(pairSearch(std::vector<int>({1,2,3,4,5,6,7,8,9,10,11,12,13,14}), 2));
   EXPECT_TRUE(pairSearch(std::vector<int>({1,2,3,4,5,6,7,8,9,10,11,12,13,14}), 3));
   EXPECT_TRUE(pairSearch(std::vector<int>({1,2,3,4,5,6,7,8,9,10,11,12,13,14}), 27));
@@ -65,6 +67,10 @@ TEST(HW2, test_isPalindrom) {
 }
 
 TEST(HW2, test_removeDuplicates) {
+  std::vector<int> empty = {};
+  removeDuplicates(empty);
+  EXPECT_EQ(empty, std::vector<int>({}));
+
   std::vector<int> mas = {1, 1, 2, 3, 3, 3, 4, 5, 5};
   removeDuplicates(mas);
   EXPECT_EQ(mas, std::vector<int>({1,2,3,4,5}));
