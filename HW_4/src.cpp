@@ -11,6 +11,7 @@ struct TreeNode {
   TreeNode *left = nullptr;
   TreeNode *right = nullptr;
   int val = 0;
+  int balance_factor = 0;
 };
 
 /* Восстанавливаем дерево из массива level-order:
